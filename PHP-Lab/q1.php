@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <form method="post">
         Enter a Number: <input type="text" name="input"><br><br>
         <input type="submit" name="submit" value="Submit">
@@ -30,6 +31,8 @@
         }
     }
     ?>
+
+
 </body>
 
 </html>
