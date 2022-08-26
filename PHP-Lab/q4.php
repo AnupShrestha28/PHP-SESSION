@@ -1,4 +1,4 @@
-<!-- Program to swap two numbers  -->
+<!-- Program to swap two numbers in php  -->
 <!DOCTYPE html>
 <html lang="en">
 
