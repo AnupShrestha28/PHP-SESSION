@@ -1,3 +1,5 @@
+<!-- Program to check if given number is odd or even -->
+
 <!DOCTYPE html>
 <html lang="en">
 
