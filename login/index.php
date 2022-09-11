@@ -25,8 +25,6 @@
         echo $_POST["password"];
     }
 
-
-
     ?>
 
 </body>
