@@ -23,8 +23,16 @@
         echo $_POST["email"];
         echo "<br>";
         echo $_POST["password"];
-    }
 
+        // database create garni yaha bata
+        $conn = new mysqli("localhost:3307", "root", "", "login_auth");
+
+        if ($conn->connect_error) {
+            die("$conn->connect_error");
+        }
+
+        echo "success";
+    }
     ?>
 
 </body>
