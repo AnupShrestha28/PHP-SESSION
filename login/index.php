@@ -18,20 +18,48 @@
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        print_r($_POST);
-        echo "<br>";
-        echo $_POST["email"];
-        echo "<br>";
-        echo $_POST["password"];
+        // print_r($_POST);
+        // echo "<br>";
+        // echo $_POST["email"];
+        // echo "<br>";
+        // echo $_POST["password"];
+
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+
 
         // database create garni yaha bata
-        $conn = new mysqli("localhost:3307", "root", "", "login_auth");
+        $conn = new mysqli("localhost:3307", "root", "", "login_auth"); // localhost, username, password, databaseName
 
-        if ($conn->connect_error) {
+        if ($conn->connect_error) { // check if connection is success or not
             die("$conn->connect_error");
         }
 
-        echo "success";
+        // start login process from here
+
+        echo "db connect success"; // success bhayo bhane yo line print garde
+
+        $sql = "SELECT * FROM user WHERE email ='$email' and password ='$pass'";
+        $result = $conn->query($sql);
+
+
+        print_r($result);
+
+
+        $row = $result->fetch_assoc();
+        echo "</pre>";
+        print_r($row);
+        echo "</pre>";
+
+        $db_email = $row['email'];
+        $db_pass = $row['password'];
+
+        if ($pass ===  $db_pass && $email === $db_email) {
+            echo "Successfully Login";
+        } else {
+            echo "Try Again!";
+        }
     }
     ?>
 
