@@ -1,3 +1,25 @@
+<?php
+include('./db_config.php');
+
+// print_r($conn);
+
+$sql = "select * from todo_list";
+$result = $conn->query($sql);
+
+// echo "<pre>";
+// print_r($result);
+// echo "</pre>";
+
+// $row = $result->fetch_assoc();
+// print_r($row);
+
+// while($row = $result->fetch_assoc()){
+//   print_r($row);
+// }
+
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,16 +41,25 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">TODO Item</th>
+      <th scope="col">Title</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+  <?php
+  while($row = $result->fetch_assoc()){ ?>
+    
     <tr>
-      <th>1</th>
-      <td>Mark</td>
+      <th><?php echo $row['id'] ?></th>
+      <td><?php echo $row['title'] ?></td>
       <td><button class="btn btn-danger">Delete</button></td>
     </tr>
+    <?php
+
+  }
+  ?>
+    
+    
     
   </tbody>
 </table>
