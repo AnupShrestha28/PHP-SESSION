@@ -1,11 +1,7 @@
 <?php
-$conn = new mysqli("localhost:3307","root","", "todo");
+$host = "localhost:3307";
+$user = "root";
+$pass = "";
+$dbname = "todos";
 
-if($conn->connect_error){
-    die($conn->connect_error);
-}
-
-// echo "success";
-
-
-?>
+$conn = mysqli_connect($host, $user, $pass, $dbname);
